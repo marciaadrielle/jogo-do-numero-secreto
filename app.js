@@ -7,24 +7,13 @@ let attempts = 1;
 function showTextOnTheScreen(tag, text) {
     let field = document.querySelector(tag);
     field.innerHTML = text;
-    //responsiveVoice.speak(text,'Brazilian Portuguese Female', {rate: 1.2});
-    if ('speechSynthesis' in window){
-        let utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 1.2;
-        window.speechSynthesis.speak(utterance);
-    } else {
-        console.log("Web Speech API não suportada neste navegador.");
-    }
-
-}
+  }
 
 function showInitialMessage() {
     showTextOnTheScreen('h1', 'Jogo do número secreto');
     showTextOnTheScreen('p', `Escolha um número de 1 a ${maximumNumber}`);
-
-
 }
+
 showInitialMessage();
 
 function checkGuess() {
